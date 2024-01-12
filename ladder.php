@@ -26,11 +26,6 @@ function generateLadder(int $n): void
 		}
 
 		$carriageHorizontal++;
-
-		// fix помогает избежать смещение чисел до 10, просто визуально приятно становится.
-//		if ($number <= 10) {
-//			print(" ");
-//		}
 	}
 
 	print(PHP_EOL);
