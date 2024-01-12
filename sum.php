@@ -22,11 +22,39 @@ function sum(string $a, string $b): void
 		return;
 	}
 
-	print_r((int)$a + (int)$b);
+	$numbers = [$a, $b];
+	print_r(array_sum($numbers));
 	print_r(PHP_EOL);
 }
 
-// Вызов функции
-$a = '11';
-$b = '13';
+/**
+ * Такая же, как функция sum, только реализованна через регулярное выражение.
+ *
+ * @param $a
+ * @param $b
+ * @return void
+ */
+function pregMatchSum($a, $b): void
+{
+	$pattern = '/\d+/';
+	preg_match_all($pattern, $a, $matches1);
+	preg_match_all($pattern, $b, $matches2);
+
+	$sum = [];
+	foreach ($matches1[0] as $key => $number1) {
+		$sum[] = $number1;
+	}
+	foreach ($matches2[0] as $number2) {
+		$sum[] = $number2;
+	}
+
+	print_r(array_sum($sum));
+	print_r(PHP_EOL);
+}
+
+// Вызов функций
+$a = '111111111111111111111111111111111111111111111111111111111111111111111111222222222222222222222222222222234324234234324324';
+$b = '131313131313131313131313131313131313131313131313131313131313131313131313123123123123123123123123123123234234234234234234';
+
 sum($a, $b);
+pregMatchSum($a, $b);
