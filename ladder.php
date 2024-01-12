@@ -15,26 +15,27 @@ function generateLadder(int $n): void
 	$carriageHorizontal = 0;
 	$carriageVertical = 0;
 	while ($number <= $n) {
-		print($number);
+		$format = "% " . strlen($n) . "d ";
+		echo sprintf($format, $number);
 		$number++;
 		if ($carriageHorizontal >= $carriageVertical) {
 			$carriageVertical++;
 			$carriageHorizontal = 0;
-			print(PHP_EOL);
+			echo PHP_EOL;
 			continue;
 		}
 
 		$carriageHorizontal++;
 
-		print(" ");
-
 		// fix помогает избежать смещение чисел до 10, просто визуально приятно становится.
-		if ($number <= 10) {
-			print(" ");
-		}
+//		if ($number <= 10) {
+//			print(" ");
+//		}
 	}
+
+	print(PHP_EOL);
 }
 
 // Вызов функции
-$n = 66;
+$n = 160;
 generateLadder($n);
